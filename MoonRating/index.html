@@ -1,0 +1,56 @@
+<!doctype html>
+<html ng-app="purchaseApp">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./index-style.css">
+</head>
+
+<body ng-controller="purchaseController">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+
+                <h2>Rate</h2>
+                <div>
+
+                    <span ng-repeat="star in stars">
+                        <img ng-src="{{star.res}}" alt="">
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="0" class="engagement-choose__block">
+        <p>Question 1</p>
+        <button type="button" class="btn btn-success btn-yes-js"> Yes</button>
+        <button type="button" class="btn btn-primary btn-no-js"> No</button>
+        <button type="button" class="btn btn-secondary btn-previous-js"> Previous</button>
+    </div>
+
+    <div id="1" class="mt-2 engagement-choose__block">
+        <p>Question 2</p>
+        <button type="button" class="btn btn-success btn-yes-js"> Yes</button>
+        <button type="button" class="btn btn-primary btn-no-js"> No</button>
+        <button type="button" class="btn btn-secondary btn-previous-js"> Previous</button>
+
+    </div>
+
+    <div id="2" class="engagement-choose__block">
+        <p>Question 3</p>
+        <button type="button" class="btn btn-success btn-yes-js"> Yes</button>
+        <button type="button" class="btn btn-primary btn-no-js"> No</button>
+        <button type="button" class="btn btn-secondary btn-previous-js"> Previous</button>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./code.js"></script>
+
+</body>
+
+</html>

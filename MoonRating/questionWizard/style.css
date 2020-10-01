@@ -1,0 +1,51 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: "Ubuntu", Helvetica, Arial, sans-serif!important;
+}
+
+.gray-color {
+    color: rgb(143, 143, 143);
+}
+
+.engagement-choose__block--current {
+    display: block !important;
+}
+
+.engagement-choose__block {
+    margin-top: 2rem;
+    display: none;
+}
+
+.c-btn {
+    min-width: 100px;
+    border-radius: 3rem;
+}
+
+.c-btn-prev {
+    border-color: white;
+}
+
+.c-btn-prev:hover {
+    border-color: white;
+    background-color: white;
+    color: #17a2b8;
+}
+
+img {
+    height: 2rem;
+}
+
+.scheme {
+    height: 400px;
+}

@@ -1,0 +1,199 @@
+<!doctype html>
+<html ng-app="purchaseApp">
+
+<head>
+    <meta charset="utf-8">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm py-5">
+                <h1 class="bd-title gray-color">Choose your engagement model</h1>
+
+                <!-- <div id="0" class="engagement-choose__block">
+                    <h1>Question 1</h1>
+                    <button type="button" class="btn btn-success btn-yes-js"> Yes</button>
+                    <button type="button" class="btn btn-primary btn-no-js"> No</button>
+                    <button type="button" class="btn btn-secondary btn-previous-js"> Previous</button>
+                </div>
+
+                <div id="1" class="mt-2 engagement-choose__block">
+                    <p>Question 2</p>
+                    <button type="button" class="btn btn-success btn-yes-js"> Yes</button>
+                    <button type="button" class="btn btn-primary btn-no-js"> No</button>
+                    <button type="button" class="btn btn-secondary btn-previous-js"> Previous</button>
+
+                </div>
+
+                <div id="2" class="engagement-choose__block">
+                    <p>Question 3</p>
+                    <button type="button" class="btn btn-success btn-yes-js"> Yes</button>
+                    <button type="button" class="btn btn-primary btn-no-js"> No</button>
+                    <button type="button" class="btn btn-secondary btn-previous-js"> Previous</button>
+
+                </div> -->
+
+                <div id="projectDurationOver6Months" class="card shadow p-3 mb-5 bg-white rounded mt-5 d-none">
+                    <div class="card-body">
+                        <h5 class="text-primary display-4 float-left font-weight-bold">1</h5>
+                        <div class="mt-4 ml-5">
+                            <h5 class="card-title">Is your project duration over 6 month?</h5>
+                            <div class="mt-5">
+                                <button type="button" class="btn c-btn btn-outline-primary btn-yes-js"> Yes</button>
+                                <button type="button" class="btn c-btn ml-5 btn-outline-primary btn-no-js"> No</button>
+                            </div>
+                            <button type="button" class="btn c-btn c-btn-prev btn-outline-info  mt-5 btn-previous-js">
+                                Previous</button>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div id="fullTime" class="card shadow p-3 mb-5 bg-white rounded mt-5 d-none">
+                    <div class="card-body">
+                        <h5 class="text-primary display-4 float-left font-weight-bold">2</h5>
+                        <div class="mt-4 ml-5">
+                            <h5 class="card-title">Is this a fulltime project?</h5>
+                            <div class="mt-5">
+                                <button type="button" class="btn c-btn btn-outline-primary btn-yes-js"> Yes</button>
+                                <button type="button" class="btn c-btn ml-5 btn-outline-primary btn-no-js"> No</button>
+                            </div>
+                            <button type="button" class="btn c-btn c-btn-prev btn-outline-info mt-5 btn-previous-js">
+                                Previous</button>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div id="technicalSupportAndMinorUpdates" class="card shadow p-3 mb-5 bg-white rounded mt-5 d-none">
+                    <div class="card-body">
+                        <h5 class="text-primary display-4 float-left font-weight-bold">2</h5>
+                        <div class="mt-4 ml-5">
+                            <h5 class="card-title">Do you need technical support and minor updates?</h5>
+                            <div class="mt-5">
+                                <button type="button" class="btn c-btn btn-outline-primary btn-yes-js"> Yes</button>
+                                <button type="button" class="btn c-btn ml-5 btn-outline-primary btn-no-js"> No</button>
+                            </div>
+                            <button type="button" class="btn c-btn c-btn-prev btn-outline-info mt-5 btn-previous-js">
+                                Previous</button>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div id="projectDurationUnder2Months" class="card shadow p-3 mb-5 bg-white rounded mt-5 d-none">
+                    <div class="card-body">
+                        <h5 class="text-primary display-4 float-left font-weight-bold">2</h5>
+                        <div class="mt-4 ml-5">
+                            <h5 class="card-title">Is your project duration is under 2 monthes?</h5>
+                            <div class="mt-5">
+                                <button type="button" class="btn c-btn btn-outline-primary btn-yes-js"> Yes</button>
+                                <button type="button" class="btn c-btn ml-5 btn-outline-primary btn-no-js"> No</button>
+                            </div>
+                            <button type="button" class="btn c-btn c-btn-prev btn-outline-info mt-5 btn-previous-js">
+                                Previous</button>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div id="specification" class="card shadow p-3 mb-5 bg-white rounded mt-5 d-none">
+                    <div class="card-body">
+                        <h5 class="text-primary display-4 float-left font-weight-bold">3</h5>
+                        <div class="mt-4 ml-5">
+                            <h5 class="card-title">Do you have specification?</h5>
+                            <div class="mt-5">
+                                <button type="button" class="btn c-btn btn-outline-primary btn-yes-js"> Yes</button>
+                                <button type="button" class="btn c-btn ml-5 btn-outline-primary btn-no-js"> No</button>
+                            </div>
+                            <button type="button" class="btn c-btn c-btn-prev btn-outline-info mt-5 btn-previous-js">
+                                Previous</button>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div id="changesExpected" class="card shadow p-3 mb-5 bg-white rounded mt-5 d-none">
+                    <div class="card-body">
+                        <h5 class="text-primary display-4 float-left font-weight-bold">4</h5>
+                        <div class="mt-4 ml-5">
+                            <h5 class="card-title">Are there changes to be expected?</h5>
+                            <div class="mt-5">
+                                <button type="button" class="btn c-btn btn-outline-primary btn-yes-js"> Yes</button>
+                                <button type="button" class="btn c-btn ml-5 btn-outline-primary btn-no-js"> No</button>
+                            </div>
+                            <button type="button" class="btn c-btn c-btn-prev btn-outline-info mt-5 btn-previous-js">
+                                Previous</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="support-package" class="card shadow p-3 mb-5 bg-white rounded mt-5 d-none">
+                    <div class="card-body">
+                        <img src="./res/check.png" alt="" class="mt-3 float-left">
+                        <h5 class="text-primary display-4 float-left font-weight-bold"></h5>
+                        <div class="mt-4 ml-5">
+                            <h5 class="card-title">The best engagement model for you is <strong class="text-primary">SUPPORT PACKAGE</strong></h5>
+                            <button type="button" class="btn c-btn c-btn-prev btn-outline-info mt-5 btn-again-js">
+                                Start again</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="dedicated-team" class="card shadow p-3 mb-5 bg-white rounded mt-5 d-none">
+                    <div class="card-body">
+                        <img src="./res/check.png" alt="" class="mt-3 float-left">
+                        <h5 class="text-primary display-4 float-left font-weight-bold"></h5>
+                        <div class="mt-4 ml-5">
+                            <h5 class="card-title">The best engagement model for you is <strong class="text-primary">DEDICATED TEAM</strong></h5>
+                            <button type="button" class="btn c-btn c-btn-prev btn-outline-info mt-5 btn-again-js">
+                                Start again</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="time-materials" class="card shadow p-3 mb-5 bg-white rounded mt-5 d-none">
+                    <div class="card-body">
+                        <img src="./res/check.png" alt="" class="mt-3 float-left">
+                        <h5 class="text-primary display-4 float-left font-weight-bold"></h5>
+                        <div class="mt-4 ml-5">
+                            <h5 class="card-title">The best engagement model for you is <strong class="text-primary">TIME MATERIALS</strong></h5>
+                            <button type="button" class="btn c-btn c-btn-prev btn-outline-info mt-5 btn-again-js">
+                                Start again</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="fixed-price" class="card shadow p-3 mb-5 bg-white rounded mt-5 d-none">
+                    <div class="card-body">
+                        <img src="./res/check.png" alt="" class="mt-3 float-left">
+                        <h5 class="text-primary display-4 float-left font-weight-bold"></h5>
+                        <div class="mt-4 ml-5">
+                            <h5 class="card-title">The best engagement model for you is <strong class="text-primary">FIXED PRICE</strong></h5>
+                            <button type="button" class="btn c-btn c-btn-prev btn-outline-info mt-5 btn-again-js">
+                                Start again</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <img src="./res//scheme.png" alt="" class="scheme">
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./questionWizard.js"></script>
+</body>
+
+</html>
