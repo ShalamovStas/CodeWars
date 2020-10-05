@@ -115,29 +115,27 @@ var cardsTree = {
 
 
     initTree() {
-        this.projectDurationOver6Months.answer = undefined;
         this.projectDurationOver6Months.node_yes = this.fullTime;
         this.projectDurationOver6Months.node_no = this.projectDurationUnder2Months;
 
-        this.fullTime.answer = undefined;
         this.fullTime.node_yes = this.dedicatedTeam;
         this.fullTime.node_no = this.technicalSupportAndMinorUpdates;
 
-        this.technicalSupportAndMinorUpdates.answer = undefined;
         this.technicalSupportAndMinorUpdates.node_yes = this.supportPackage;
         this.technicalSupportAndMinorUpdates.node_no = this.timeAndMaterials;
 
-        this.projectDurationUnder2Months.answer = undefined;
         this.projectDurationUnder2Months.node_yes = this.specification;
         this.projectDurationUnder2Months.node_no = this.timeAndMaterials;
 
-        this.specification.answer = undefined;
         this.specification.node_yes = this.changesExpected;
         this.specification.node_no = this.timeAndMaterials;
 
-        this.changesExpected.answer = undefined;
         this.changesExpected.node_yes = this.timeAndMaterials;
         this.changesExpected.node_no = this.fixedPrice;
+
+        for (var key in this) {
+            this[key].answer = undefined
+        }
     }
 }
 
@@ -161,15 +159,15 @@ const treeEngine = {
         if (node.finalNode)
             return node;
 
-        if (node.answer == true) {
+        if (node.answer === true) {
             return this.processTree(node.node_yes);
         }
 
-        if (node.answer == false) {
+        if (node.answer === false) {
             return this.processTree(node.node_no);
         }
 
-        if (node.answer == undefined) {
+        if (node.answer === undefined) {
             return node;
         }
 
@@ -177,57 +175,32 @@ const treeEngine = {
     },
 
     getPreviousTreeNodeByChildId: function(childNodeId) {
-        if (cardsTree.projectDurationOver6Months.node_yes.id === childNodeId ||
-            cardsTree.projectDurationOver6Months.node_no.id === childNodeId)
-            return cardsTree.projectDurationOver6Months;
+        for (var key in cardsTree) {
+            if (!cardsTree[key].node_yes || !cardsTree[key].node_no)
+                continue;
 
-        if (cardsTree.fullTime.node_yes.id === childNodeId ||
-            cardsTree.fullTime.node_no.id === childNodeId)
-            return cardsTree.fullTime;
-
-        if (cardsTree.technicalSupportAndMinorUpdates.node_yes.id === childNodeId ||
-            cardsTree.technicalSupportAndMinorUpdates.node_no.id === childNodeId)
-            return cardsTree.technicalSupportAndMinorUpdates;
-
-        if (cardsTree.projectDurationUnder2Months.node_yes.id === childNodeId ||
-            cardsTree.projectDurationUnder2Months.node_no.id === childNodeId)
-            return cardsTree.projectDurationUnder2Months;
-
-        if (cardsTree.specification.node_yes.id === childNodeId ||
-            cardsTree.specification.node_no.id === childNodeId)
-            return cardsTree.specification;
-
-        if (cardsTree.changesExpected.node_yes.id === childNodeId ||
-            cardsTree.changesExpected.node_no.id === childNodeId)
-            return cardsTree.changesExpected;
+            if (cardsTree[key].node_yes.id === childNodeId ||
+                cardsTree[key].node_no.id === childNodeId) {
+                return cardsTree[key];
+            }
+        }
 
         return childNodeId;
     },
 
     setNodeAnswerByNodeId: function(id, answer) {
-        if (cardsTree.projectDurationOver6Months.id === id)
-            cardsTree.projectDurationOver6Months.answer = answer;
 
-        if (cardsTree.fullTime.id === id)
-            cardsTree.fullTime.answer = answer;
-
-        if (cardsTree.technicalSupportAndMinorUpdates.id === id)
-            cardsTree.technicalSupportAndMinorUpdates.answer = answer;
-
-        if (cardsTree.projectDurationUnder2Months.id === id)
-            cardsTree.projectDurationUnder2Months.answer = answer;
-
-        if (cardsTree.specification.id === id)
-            cardsTree.specification.answer = answer;
-
-        if (cardsTree.changesExpected.id === id)
-            cardsTree.changesExpected.answer = answer;
+        for (var key in cardsTree) {
+            if (cardsTree[key].id === id) {
+                cardsTree[key].answer = answer;
+                return;
+            }
+        }
     }
 }
 
 const contentWizardHelper = {
     showCardById: (id) => {
-        console.log("showCard by id: " + id)
         $('.engagement-choose__block--current')
             .removeClass('engagement-choose__block--current');
 
@@ -240,7 +213,6 @@ const wizardControl = {
     currentCard: undefined,
 
     initWizard: function() {
-        console.log("init wizard")
         cardsTree.initTree();
         this.currentCard = cardsTree.projectDurationOver6Months;
         contentWizardHelper.showCardById(this.currentCard.id);
@@ -254,7 +226,6 @@ const wizardControl = {
 
     previousExtended: function() {
         let previousNode = treeEngine.getPreviousTreeNodeByChildId(this.currentCard.id)
-        console.log(previousNode)
         treeEngine.setNodeAnswerByNodeId(previousNode.id, undefined)
         this.currentCard = treeEngine.findNextTreeNode();
         contentWizardHelper.showCardById(this.currentCard.id);
