@@ -8,61 +8,71 @@ function initTree() {
     let project6Month = {
         id: "project6Month",
         name: "Project duration over 6 month",
-        children: []
+        children: [],
+        isRoot: true
     }
 
     let fullTime = {
         id: "fullTime",
         name: "Fulltime",
-        children: []
+        children: [],
+        isRoot: false
     }
 
     let dedicatedTeam = {
         id: "dedicatedTeam",
         name: "DedicatedTeam",
-        children: []
+        children: [],
+        isRoot: false
     }
 
     let technicalSupport = {
-        id: "changesExpected",
+        id: "technicalSupport",
         name: "TechnicalSupport",
-        children: []
+        children: [],
+        isRoot: false
     }
 
     let supportPackage = {
         id: "supportPackage",
         name: "SupportPackage",
-        children: []
+        children: [],
+        isRoot: false
     }
 
     let project2Month = {
         id: "projectUnder2Month",
         name: "durationUnder2Month",
-        children: []
+        children: [],
+        isRoot: false
     }
 
     let specification = {
         id: "specification",
         name: "specification",
-        children: []
+        children: [],
+        isRoot: false
     }
 
     let changesExpected = {
         id: "changesExpected",
         name: "changesExpected",
-        children: []
+        children: [],
+        isRoot: false
     }
 
     let timeMaterial = {
         id: "timeMaterial",
         name: "TimeMaterial",
-        children: []
+        children: [],
+        isRoot: false
     }
 
     let fixedPrice = {
         id: "fixedPrice",
         name: "FixedPrice",
-        children: []
+        children: [],
+        isRoot: false
     }
 
 
@@ -128,17 +138,17 @@ function addNode(nodeList, parentId, nodeModel) {
     return resultModel;
 }
 
-function getRootNode(nodeList) {
-    if (!nodeList)
+function getRootNode(currentNodeList) {
+    if (!currentNodeList)
         throw "nodeList not valid"
 
-    let rootNode = nodeList.find(node => {
+    let rootNode = currentNodeList.find(node => {
         return node.children.length === 0;
     })
 
-    nodeList.forEach(node => {
+    currentNodeList.forEach(node => {
         let childrenFound = false;
-        nodeList.forEach(innerNode => {
+        currentNodeList.forEach(innerNode => {
             if (innerNode.children.find(x => { return x.id === node.id }))
                 childrenFound = true;
         })
@@ -152,4 +162,27 @@ function getRootNode(nodeList) {
         throw "Root not found"
 
     return rootNode;
+}
+
+function getTreeRootNode(currentNodeList) {
+    return currentNodeList.find(x => { return x.isRoot })
+}
+
+function getParenNodeByChildId(nodeList, childId) {
+    var childrenFound = false;
+    let nodeFound;
+
+    nodeList.forEach(node => {
+
+        if (node.children.find(x => { return x.id === childId })) {
+            childrenFound = true;
+            nodeFound = node;
+            return
+        }
+    });
+
+    if (!nodeFound)
+        throw "getParenNodeByChildId not found"
+
+    return nodeFound;
 }

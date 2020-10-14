@@ -21,9 +21,14 @@
             <div class="col-lg">
                 <form id="createNodeForm" class="col card shadow p-3 mb-4 bg-white rounded mt-5">
                     <h3 class="bd-title gray-color text-center mb-5 text-secondary">Create node</h3>
+
                     <div class="form-group row">
-                        <label for="nodeName" class="col-lg-4 col-form-label text-center">Node name</label>
                         <div class="col-sm">
+                            <label for="nodeName" class="col-form-label text-center">Node Id</label>
+                            <input type="text" class="form-control" id="nodeId-newNode">
+                        </div>
+                        <div class="col-sm">
+                            <label for="nodeName" class="col-form-label text-center">Node name</label>
                             <input type="text" class="form-control" id="nodeName-newNode">
                         </div>
                     </div>
@@ -34,6 +39,7 @@
                         </div>
                     </div>
                     <button id="addNodeBtn" type="button" class=" mt-4 btn btn-primary">Add</button>
+                    <h5 id="error-message" class="text-center mt-2 text-danger d-none">Error message</h5>
                 </form>
             </div>
 
@@ -60,7 +66,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="parentNode" class="col-lg-4 col-form-label text-center">Child Nodes</label>
+                        <label for="parentNode" class="col-lg-4 col-form-label text-center">Children Nodes</label>
                         <div class="col-sm">
 
                             <ul id="children" class="mt-4 list-group">
@@ -72,6 +78,9 @@
                             </ul>
                         </div>
                     </div>
+
+                    <button id="deleteNodeBtn" type="button" class=" mt-4 btn btn-danger">Delete node</button>
+
 
                 </form>
             </div>
